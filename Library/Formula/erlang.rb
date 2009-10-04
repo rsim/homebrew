@@ -37,6 +37,9 @@ class Erlang <Formula
 
   depends_on 'icu4c'
 
+  # stripping of beam.smp caused that crypto_drv could not find _driver_alloc symbol
+  skip_clean 'lib'
+
   def install
     ENV.deparallelize
     config_flags = ["--disable-debug",
